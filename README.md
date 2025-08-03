@@ -14,7 +14,7 @@ A real-time aerospace production tracking platform built with modern web technol
 1. **Clone the repository**
 \`\`\`bash
 git clone <repository-url>
-cd osilion-production-frontend
+cd osilion-frontend
 \`\`\`
 
 2. **Install dependencies**
@@ -48,7 +48,7 @@ The application includes pre-configured demo accounts for testing different role
 | Role | Email | Password | Permissions |
 |------|-------|----------|-------------|
 | Product Manager | pm@osilion.com | password123 | Full CRUD on Products & Projects, Read Items |
-| Project Manager | proj@osilion.com | password123 | Full CRUD on Projects, Read Products & Items |
+| Project Manager | pjm@osilion.com | password123 | Full CRUD on Projects, Read Products & Items |
 | Engineer | eng@osilion.com | password123 | Full CRUD on Items, Read Products & Projects |
 
 ## 🛠️ Technology Stack
@@ -98,81 +98,6 @@ The application includes pre-configured demo accounts for testing different role
 | **Prettier** | Code formatting |
 | **TypeScript** | Static type checking |
 
-## 🏗️ System Architecture
-
-### High-Level Architecture
-
-\`\`\`
-┌─────────────────────────────────────────────────────────────┐
-│                    CLIENT TIER                              │
-├─────────────────────────────────────────────────────────────┤
-│  Next.js Frontend (Port 3000)                              │
-│  ├── App Router (RSC + Client Components)                  │
-│  ├── Authentication & Authorization                        │
-│  ├── Real-time WebSocket Connection                        │
-│  ├── State Management (TanStack Query + Context)           │
-│  └── Responsive UI (Tailwind + shadcn/ui)                  │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              │ HTTP/WebSocket
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                   SERVER TIER                               │
-├─────────────────────────────────────────────────────────────┤
-│  Backend API Server (Port 3001)                            │
-│  ├── RESTful API Endpoints                                 │
-│  ├── WebSocket Server (Socket.IO)                          │
-│  ├── Authentication Middleware                             │
-│  ├── Role-based Access Control                             │
-│  └── Business Logic Layer                                  │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              │ Database Queries
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    DATA TIER                                │
-├─────────────────────────────────────────────────────────────┤
-│  Database (PostgreSQL/MySQL/SQLite)                        │
-│  ├── Users & Authentication                                │
-│  ├── Products & Specifications                             │
-│  ├── Projects & Timelines                                  │
-│  ├── Items & Production Status                             │
-│  └── Audit Logs & History                                  │
-└─────────────────────────────────────────────────────────────┘
-\`\`\`
-
-### Frontend Architecture
-
-\`\`\`
-src/
-├── app/                          # Next.js App Router
-│   ├── (app)/                   # Authenticated routes
-│   │   ├── dashboard/           # Dashboard pages
-│   │   ├── products/            # Product management
-│   │   ├── projects/            # Project management
-│   │   ├── items/               # Item tracking
-│   │   └── layout.tsx           # App layout wrapper
-│   ├── login/                   # Authentication
-│   ├── globals.css              # Global styles
-│   └── layout.tsx               # Root layout
-├── components/                   # Reusable components
-│   ├── ui/                      # shadcn/ui components
-│   ├── layout/                  # Layout components
-│   ├── dashboard/               # Dashboard-specific
-│   ├── products/                # Product components
-│   ├── projects/                # Project components
-│   └── items/                   # Item components
-├── hooks/                       # Custom React hooks
-│   ├── use-auth.ts             # Authentication
-│   ├── use-websocket.ts        # WebSocket connection
-│   ├── use-notifications.ts    # Real-time notifications
-│   └── use-color-scheme.ts     # Theme management
-├── lib/                        # Utilities and configuration
-│   ├── api.ts                  # API client and endpoints
-│   ├── permissions.ts          # Role-based access control
-│   └── utils.ts                # Helper functions
-└── types/                      # TypeScript type definitions
-\`\`\`
 
 ## 📊 Database Schema (ERD)
 

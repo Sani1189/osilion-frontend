@@ -113,7 +113,7 @@ export default function LoginPage() {
                 <strong>Product Manager:</strong> pm@osilion.com
               </p>
               <p>
-                <strong>Project Manager:</strong> proj@osilion.com
+                <strong>Project Manager:</strong> pjm@osilion.com
               </p>
               <p>
                 <strong>Engineer:</strong> eng@osilion.com
