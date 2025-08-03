@@ -8,6 +8,7 @@ A real-time aerospace production tracking platform built with modern web technol
 
 - Node.js 18+ and npm/yarn
 - Git
+- Setup backend [https://github.com/Sani1189/osilion-backend]
 
 ### Local Development Setup
 
