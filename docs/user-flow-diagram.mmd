@@ -1,0 +1,40 @@
+flowchart TD
+    Start([User Access]) --> Auth{Authenticated?}
+    Auth -->|No| Login[Login Page]
+    Auth -->|Yes| Role{User Role}
+    
+    Login --> Validate[Validate Credentials]
+    Validate -->|Success| Role
+    Validate -->|Failure| Login
+    
+    Role --> PM[Product Manager]
+    Role --> PJM[Project Manager]
+    Role --> ENG[Engineer]
+    
+    PM --> PMDash[PM Dashboard]
+    PJM --> PJMDash[PM Dashboard]
+    ENG --> ENGDash[Engineer Dashboard]
+    
+    PMDash --> Products[Manage Products]
+    PMDash --> Projects[Manage Projects]
+    PMDash --> ViewItems[View Items]
+    
+    PJMDash --> ViewProducts[View Products]
+    PJMDash --> ManageProjects[Manage Projects]
+    PJMDash --> ViewItems2[View Items]
+    
+    ENGDash --> ViewProducts2[View Products]
+    ENGDash --> ViewProjects[View Projects]
+    ENGDash --> ManageItems[Manage Items]
+    
+    Products --> CRUD1[Create/Read/Update/Delete]
+    Projects --> CRUD2[Create/Read/Update/Delete]
+    ManageProjects --> CRUD3[Create/Read/Update/Delete]
+    ManageItems --> CRUD4[Create/Read/Update/Delete]
+    
+    CRUD1 --> Notify[Real-time Notifications]
+    CRUD2 --> Notify
+    CRUD3 --> Notify
+    CRUD4 --> Notify
+    
+    Notify --> Update[Update All Connected Clients]
